@@ -1,0 +1,20 @@
+<a mat-raised-button routerLink="create">Crear nuevo hospital</a>
+<mat-table [dataSource]="hospitals" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let hospital"> {{hospital.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let hospital"> {{hospital.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let hospital">
+            <a mat-raised-button [routerLink]="['edit', hospital.id]">Editar</a>
+            <button mat-raised-button color="warn" (click)="deletehospital(hospital.id)">Eliminar</button>
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
