@@ -22,8 +22,8 @@ export class HospitalListComponent implements OnInit {
   
   fetch() {
     this.hospitalService.getAll()
-    .subscribe(products => {
-      this.hospitals = products;
+    .subscribe(hospitals => {
+      this.hospitals = hospitals;
     });
   }
 
@@ -32,11 +32,11 @@ export class HospitalListComponent implements OnInit {
     .subscribe(rta => {
       console.log('Hospital deleted rta::::', rta);
       if (rta) {
-        const index = this.hospitals.findIndex(product => product.id === id);
+        const index = this.hospitals.findIndex(hospital => hospital.id === id);
         this.hospitals.splice(index, 1);
         this.hospitals = [...this.hospitals];
       }
-      // this.fetchProducts();
+      // this.fetchhospitals();
     });
   }
 }
