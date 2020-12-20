@@ -22,8 +22,8 @@ export class HospitalService {
     return this.http.get<Hospital>(`${environment.url_api}/hospitals/${id}`);
   }
 
-  create(product: Hospital) {
-    return this.http.post(`${environment.url_api}/hospitals`, product);
+  create(hospital: Hospital) {
+    return this.http.post(`${environment.url_api}/hospitals`, hospital);
   }
 
   update(id: string, changes: Partial<Hospital>) {

@@ -22,8 +22,8 @@ export class SpecialtyService {
     return this.http.get<Specialty>(`${environment.url_api}/specialties/${id}`);
   }
 
-  create(product: Specialty) {
-    return this.http.post(`${environment.url_api}/specialties`, product);
+  create(specialty: Specialty) {
+    return this.http.post(`${environment.url_api}/specialties`, specialty);
   }
 
   update(id: string, changes: Partial<Specialty>) {
