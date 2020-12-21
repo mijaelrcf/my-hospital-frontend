@@ -10,7 +10,7 @@ import { SpecialtyService } from './../../../core/services/specialty/specialty.s
 export class SpecialtyListComponent implements OnInit {
 
   specialtys = [];
-  displayedColumns: string[] = ['id', 'name', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'description', 'avatar', 'actions'];
 
   constructor(
     private specialtyService: SpecialtyService
@@ -19,7 +19,7 @@ export class SpecialtyListComponent implements OnInit {
   ngOnInit() {
     this.fetch();
   }
-  
+
   fetch() {
     this.specialtyService.getAll()
     .subscribe(specialtys => {

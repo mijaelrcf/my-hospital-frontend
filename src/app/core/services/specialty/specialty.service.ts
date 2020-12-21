@@ -27,7 +27,7 @@ export class SpecialtyService {
   }
 
   update(id: string, changes: Partial<Specialty>) {
-    return this.http.put(`${environment.url_api}/specialties/${id}`, changes);
+    return this.http.patch(`${environment.url_api}/specialties/${id}`, changes);
   }
 
   delete(id: string) {

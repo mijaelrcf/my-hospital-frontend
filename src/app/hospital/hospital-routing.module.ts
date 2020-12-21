@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HospitalListComponent } from './components/hospital-list/hospital-list.component';
 import { HospitalCreateComponent } from './components/hospital-create/hospital-create.component';
+import { HospitalEditComponent } from './components/hospital-edit/hospital-edit.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: 'create',
         component: HospitalCreateComponent
+    },
+    {
+      path: 'edit/:id',
+      component: HospitalEditComponent
     },
 ];
 

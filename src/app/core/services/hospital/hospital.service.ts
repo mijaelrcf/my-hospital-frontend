@@ -27,7 +27,7 @@ export class HospitalService {
   }
 
   update(id: string, changes: Partial<Hospital>) {
-    return this.http.put(`${environment.url_api}/hospitals/${id}`, changes);
+    return this.http.patch(`${environment.url_api}/hospitals/${id}`, changes);
   }
 
   delete(id: string) {

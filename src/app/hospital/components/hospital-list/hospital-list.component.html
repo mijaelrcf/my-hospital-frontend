@@ -12,7 +12,7 @@
         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
         <mat-cell *matCellDef="let hospital">
             <a mat-raised-button [routerLink]="['edit', hospital.id]">Editar</a>
-            <button mat-raised-button color="warn" (click)="deletehospital(hospital.id)">Eliminar</button>
+            <button mat-raised-button color="warn" (click)="delete(hospital.id)">Eliminar</button>
         </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
