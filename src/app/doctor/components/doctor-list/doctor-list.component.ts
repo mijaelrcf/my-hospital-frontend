@@ -11,7 +11,15 @@ import { DoctorService } from './../../../core/services/doctor/doctor.service';
 export class DoctorListComponent implements OnInit {
 
   doctors = [];
-  displayedColumns: string[] = ['id', 'name', 'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'lastName',
+    'birthdate',
+    'address',
+    'profilePicture',
+    'actions'
+  ];
 
   constructor(
     private doctorService: DoctorService
