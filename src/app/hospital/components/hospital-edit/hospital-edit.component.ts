@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-// import { MyValidators } from './../../../utils/validators';
 import { HospitalService } from './../../../core/services/hospital/hospital.service';
 
 @Component({
@@ -54,10 +53,6 @@ export class HospitalEditComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      // price: ['', [Validators.required, MyValidators.isPriceValid]],
-      // image: [''],
-      // description: ['', [Validators.required]],
     });
   }
-
 }

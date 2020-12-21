@@ -1,27 +1,34 @@
 <form [formGroup]="form" (ngSubmit)="save($event)">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Specialty</mat-card-title>
+            <mat-card-title>Create Specialty</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-            <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Id" formControlName="id" matInput type="text">
-                    </mat-form-field>
-                </div>
-            </div>
+        <mat-card-content>            
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
                         <input placeholder="Name" formControlName="name" matInput type="text">
                     </mat-form-field>
                 </div>
-            </div>            
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Description" formControlName="description" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Avatar" formControlName="avatar" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
         </mat-card-content>
         <mat-card-actions>
-            <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
-            <a mat-raised-button routerLink="/specialty">Volver</a>
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Save</button>
+            <a mat-raised-button routerLink="/specialty">Return</a>
         </mat-card-actions>
     </mat-card>    
 </form>
