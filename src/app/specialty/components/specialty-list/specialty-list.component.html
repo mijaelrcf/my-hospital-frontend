@@ -20,7 +20,7 @@
         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
         <mat-cell *matCellDef="let specialty">
             <a mat-raised-button [routerLink]="['edit', specialty.id]">Editar</a>
-            <button mat-raised-button color="warn" (click)="deletespecialty(specialty.id)">Eliminar</button>
+            <button mat-raised-button color="warn" (click)="delete(specialty.id)">Eliminar</button>
         </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -61,11 +61,12 @@ export class DoctorCreateComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      // id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      // price: ['', [Validators.required, MyValidators.isPriceValid]],
-      // image: [''],
-      // description: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      birthdate: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      profilePicture: ['', [Validators.required]],
     });
   }
 }

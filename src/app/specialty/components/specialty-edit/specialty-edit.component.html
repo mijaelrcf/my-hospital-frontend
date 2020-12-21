@@ -17,7 +17,21 @@
                         <input placeholder="Name" formControlName="name" matInput type="text">
                     </mat-form-field>
                 </div>
-            </div>                   
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Description" formControlName="description" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Avatar" formControlName="avatar" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>

@@ -7,17 +7,38 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Id" formControlName="id" matInput type="text">
+                        <input placeholder="Name" formControlName="name" matInput type="text">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Name" formControlName="name" matInput type="text">
+                        <input placeholder="Last Name" formControlName="lastName" matInput type="text">
                     </mat-form-field>
                 </div>
-            </div>            
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Birthdate" formControlName="birthdate" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Address" formControlName="address" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Profile Picture" formControlName="profilePicture" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div> 
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
