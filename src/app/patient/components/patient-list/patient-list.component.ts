@@ -20,7 +20,7 @@ export class PatientListComponent implements OnInit {
   ngOnInit() {
     this.fetch();
   }
-  
+
   fetch() {
     this.patientService.getAll()
     .subscribe(patients => {

@@ -19,7 +19,7 @@ export class SpecialtyCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private specialtyService: SpecialtyService,
     private router: Router,
-  ) { 
+  ) {
     this.buildForm();
   }
 
@@ -28,7 +28,7 @@ export class SpecialtyCreateComponent implements OnInit {
 
   save(event: Event) {
     event.preventDefault();
-    if(this.form.valid) {
+    if (this.form.valid) {
       const product = this.form.value;
       this.specialtyService.create(product)
       .subscribe((newProduct) => {
@@ -62,9 +62,9 @@ export class SpecialtyCreateComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      //price: ['', [Validators.required, MyValidators.isPriceValid]],
-      //image: [''],
-      //description: ['', [Validators.required]],
+      // price: ['', [Validators.required, MyValidators.isPriceValid]],
+      // image: [''],
+      // description: ['', [Validators.required]],
     });
   }
 }

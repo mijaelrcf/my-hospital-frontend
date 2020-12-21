@@ -19,7 +19,7 @@ export class HospitalListComponent implements OnInit {
   ngOnInit() {
     this.fetch();
   }
-  
+
   fetch() {
     this.hospitalService.getAll()
     .subscribe(hospitals => {

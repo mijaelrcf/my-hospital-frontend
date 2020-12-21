@@ -8,7 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FooterComponent implements OnInit {
   emailField: FormControl;
-  constructor() { 
+  constructor() {
     this.emailField = new FormControl('', [
       Validators.required,
       Validators.email

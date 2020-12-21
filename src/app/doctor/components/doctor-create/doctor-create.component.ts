@@ -5,7 +5,7 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { DoctorService } from './../../../core/services/doctor/doctor.service';
-//import { MyValidators } from './../../../utils/validators';
+// import { MyValidators } from './../../../utils/validators';
 
 @Component({
   selector: 'app-doctor-create',
@@ -20,7 +20,7 @@ export class DoctorCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private doctorService: DoctorService,
     private router: Router,
-  ) { 
+  ) {
     this.buildForm();
   }
 
@@ -29,7 +29,7 @@ export class DoctorCreateComponent implements OnInit {
 
   save(event: Event) {
     event.preventDefault();
-    if(this.form.valid) {
+    if (this.form.valid) {
       const product = this.form.value;
       this.doctorService.create(product)
       .subscribe((newProduct) => {
@@ -63,9 +63,9 @@ export class DoctorCreateComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      //price: ['', [Validators.required, MyValidators.isPriceValid]],
-      //image: [''],
-      //description: ['', [Validators.required]],
+      // price: ['', [Validators.required, MyValidators.isPriceValid]],
+      // image: [''],
+      // description: ['', [Validators.required]],
     });
   }
 }

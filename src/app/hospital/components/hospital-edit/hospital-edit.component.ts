@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-//import { MyValidators } from './../../../utils/validators';
+// import { MyValidators } from './../../../utils/validators';
 import { HospitalService } from './../../../core/services/hospital/hospital.service';
 
 @Component({
@@ -39,7 +39,7 @@ export class HospitalEditComponent implements OnInit {
 
   save(event: Event) {
     event.preventDefault();
-    if(this.form.valid) {
+    if (this.form.valid) {
       const hospital = this.form.value;
       this.hospitalService.update(this.id, hospital)
       .subscribe((newhospital) => {
@@ -54,9 +54,9 @@ export class HospitalEditComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      //price: ['', [Validators.required, MyValidators.isPriceValid]],
-      //image: [''],
-      //description: ['', [Validators.required]],
+      // price: ['', [Validators.required, MyValidators.isPriceValid]],
+      // image: [''],
+      // description: ['', [Validators.required]],
     });
   }
 
