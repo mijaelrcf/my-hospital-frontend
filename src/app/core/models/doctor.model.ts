@@ -2,7 +2,7 @@ export interface Doctor {
     id: number;
     name: string;
     lastName: string;
-    birthdate: string;
+    birthdate: Date;
     address: string;
     profilePicture: string;
     hospital: string;

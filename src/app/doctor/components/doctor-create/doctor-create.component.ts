@@ -5,7 +5,8 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { DoctorService } from './../../../core/services/doctor/doctor.service';
-// import { MyValidators } from './../../../utils/validators';
+import { HospitalService } from './../../../core/services/hospital/hospital.service';
+import { SpecialtyService } from './../../../core/services/specialty/specialty.service';
 
 @Component({
   selector: 'app-doctor-create',
@@ -15,16 +16,30 @@ import { DoctorService } from './../../../core/services/doctor/doctor.service';
 export class DoctorCreateComponent implements OnInit {
 
   form: FormGroup;
+  hospitals = [];
+  hospitalId: number;
+  specialties = [];
+  specialtyId: number;
 
   constructor(
     private formBuilder: FormBuilder,
     private doctorService: DoctorService,
     private router: Router,
+    private hospitalService: HospitalService,
+    private specialtyService: SpecialtyService,
   ) {
     this.buildForm();
   }
 
   ngOnInit() {
+    this.hospitalService.getAll()
+    .subscribe(hospitals => {
+      this.hospitals = hospitals;
+    });
+    this.specialtyService.getAll()
+    .subscribe(specialties => {
+      this.specialties = specialties;
+    });
   }
 
   save(event: Event) {
@@ -61,12 +76,13 @@ export class DoctorCreateComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      // id: ['', [Validators.required]],
+      hospitalId: ['', [Validators.required]],
+      specialtyId: ['', [Validators.required]],
       name: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       birthdate: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      profilePicture: ['', [Validators.required]],
+      profilePicture: [''],
     });
   }
 }

@@ -5,7 +5,9 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { PatientService } from './../../../core/services/patient/patient.service';
-// import { MyValidators } from './../../../utils/validators';
+import { HospitalService } from './../../../core/services/hospital/hospital.service';
+// import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-patient-create',
@@ -16,16 +18,26 @@ import { PatientService } from './../../../core/services/patient/patient.service
 export class PatientCreateComponent implements OnInit {
 
   form: FormGroup;
+  hospitals = [];
+  hospitalId: number;
+  birthDateStr: string;
+  // hospitalOptions: Option[];
 
   constructor(
     private formBuilder: FormBuilder,
     private patientService: PatientService,
     private router: Router,
+    private hospitalService: HospitalService,
+    // private readonly datePipe: DatePipe,
   ) {
     this.buildForm();
   }
 
   ngOnInit() {
+    this.hospitalService.getAll()
+    .subscribe(hospitals => {
+      this.hospitals = hospitals;
+    });
   }
 
   save(event: Event) {
@@ -40,6 +52,10 @@ export class PatientCreateComponent implements OnInit {
     }
     console.log(this.form.value);
   }
+
+  // onBirthDateChange($event: any) {
+  //   this.birthDateStr = this.datePipe.transform($event, 'MM/dd/yyyy');
+  // }
 
   // uploadFile(event){
   //   const file = event.target.files[0];
@@ -62,11 +78,12 @@ export class PatientCreateComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      hospitalId: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      // price: ['', [Validators.required, MyValidators.isPriceValid]],
-      // image: [''],
-      // description: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      birthdate: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      profilePicture: [''],
     });
   }
 

@@ -6,6 +6,32 @@
         <mat-card-content>
             <div class="row">
                 <div class="col-xs">
+                     <mat-form-field *ngIf = "hospitals">
+                        <mat-select formControlName="hospitalId"  
+                            placeholder="Select Hospital" 
+                            [(value)]="selectedHospital">
+                            <mat-option *ngFor="let item of hospitals" [value]="item.id">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                     <mat-form-field *ngIf = "specialties">
+                        <mat-select formControlName="specialtyId"
+                            placeholder="Select Specialty"
+                            [(value)]="selectedSpecialty">
+                            <mat-option *ngFor="let item of specialties" [value]="item.id">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
                     <mat-form-field>
                         <input placeholder="Name" formControlName="name" matInput type="text">
                     </mat-form-field>
@@ -21,8 +47,10 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Birthdate" formControlName="birthdate" matInput type="text">
-                    </mat-form-field>
+                        <input formControlName="birthdate" matInput [matDatepicker]="myPicker"  placeholder="date">
+                        <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myPicker></mat-datepicker>
+                    </mat-form-field>                    
                 </div>
             </div>
             <div class="row">
