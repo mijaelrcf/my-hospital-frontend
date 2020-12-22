@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Proceso de Instalacion 
+
+Se debe descargar el codigo fuente desarrollado con ANGULAR
+
+Se debe obtener/actualizar las dependencias del proyecto.  (npm update)
+
+En el archivo environments/environment.ts
+Se debe apuntar en el key "url_api" al sitio backend realizado JAVA Spring 
+https://github.com/mijaelrcf/my-hospital-backend
+
+Ejemplo: url_api: 'http://localhost:8080/my-hospital/api
+
