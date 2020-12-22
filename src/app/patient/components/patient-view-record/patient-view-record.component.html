@@ -1,0 +1,19 @@
+<mat-table [dataSource]="records" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let record"> {{record.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let record"> {{record.description}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="recordDate">
+        <mat-header-cell *matHeaderCellDef> RecordDate </mat-header-cell>
+        <mat-cell *matCellDef="let record"> {{record.recordDate}} </mat-cell>
+    </ng-container>    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-card-actions>
+    <a mat-raised-button routerLink="/patient">Return</a>
+</mat-card-actions>

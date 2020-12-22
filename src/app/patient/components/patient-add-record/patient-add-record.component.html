@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add Record Patient</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>  
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Description" formControlName="description" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Record Date" formControlName="recordDate" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>                     
+        </mat-card-content>
+        <mat-card-actions>
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Save</button>
+            <a mat-raised-button routerLink="/patient">Return</a>
+        </mat-card-actions>
+    </mat-card>    
+</form>
+

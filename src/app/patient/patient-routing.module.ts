@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PatientListComponent } from './components/patient-list/patient-list.component';
 import { PatientCreateComponent } from './components/patient-create/patient-create.component';
 import { PatientEditComponent } from './components/patient-edit/patient-edit.component';
+import { PatientAddRecordComponent } from './components/patient-add-record/patient-add-record.component';
+import { PatientViewRecordComponent } from './components/patient-view-record/patient-view-record.component';
 
 const routes: Routes = [
     {
@@ -21,6 +23,14 @@ const routes: Routes = [
     {
       path: 'edit/:id',
       component: PatientEditComponent
+    },
+    {
+      path: 'viewRecord/:id',
+      component: PatientViewRecordComponent
+    },
+    {
+      path: 'addRecord/:id',
+      component: PatientAddRecordComponent
     },
 ];
 

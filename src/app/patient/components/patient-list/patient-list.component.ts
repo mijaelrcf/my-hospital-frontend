@@ -15,7 +15,7 @@ export class PatientListComponent implements OnInit {
     'id',
     'name',
     'lastName',
-    'birthdate',
+    //'birthdate',
     'address',
     // 'profilePicture',
     'actions'

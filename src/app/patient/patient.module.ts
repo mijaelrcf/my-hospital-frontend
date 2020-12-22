@@ -8,9 +8,11 @@ import { PatientRoutingModule } from './patient-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { MaterialModule } from './../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PatientViewRecordComponent } from './components/patient-view-record/patient-view-record.component';
+import { PatientAddRecordComponent } from './components/patient-add-record/patient-add-record.component';
 
 @NgModule({
-  declarations: [PatientListComponent, PatientCreateComponent, PatientEditComponent],
+  declarations: [PatientListComponent, PatientCreateComponent, PatientEditComponent, PatientViewRecordComponent, PatientAddRecordComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
