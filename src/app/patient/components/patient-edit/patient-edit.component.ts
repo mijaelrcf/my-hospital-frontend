@@ -13,7 +13,7 @@ import { HospitalService } from './../../../core/services/hospital/hospital.serv
 export class PatientEditComponent implements OnInit {
 
   form: FormGroup;
-  id: string;
+  id: number;
   hospitals = [];
   hospitalId: number;
 

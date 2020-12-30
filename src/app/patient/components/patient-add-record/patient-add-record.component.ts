@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { PatientService } from './../../../core/services/patient/patient.service';
+import { DoctorService } from './../../../core/services/doctor/doctor.service';
 import { RecordService } from './../../../core/services/record/record.service';
 // import { DatePipe } from '@angular/common';
 
@@ -17,7 +18,9 @@ import { RecordService } from './../../../core/services/record/record.service';
 export class PatientAddRecordComponent implements OnInit {
 
   form: FormGroup;
+  clientId: number;
   patients = [];
+  doctors = [];
   hospitalId: number;
   birthDateStr: string;
   // hospitalOptions: Option[];
@@ -25,7 +28,9 @@ export class PatientAddRecordComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private patientService: PatientService,
+    private doctorService: DoctorService,
     private router: Router,
+    private activeRoute: ActivatedRoute,
     private recordService: RecordService,
     // private readonly datePipe: DatePipe,
   ) {
@@ -33,9 +38,20 @@ export class PatientAddRecordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getAll()
-    .subscribe(patients => {
-      this.patients = patients;
+    this.activeRoute.params.subscribe((params: Params) => {
+      console.log(params);
+      this.clientId = params.id;
+      this.patientService.get(this.clientId)
+      .subscribe(patient => {
+        console.log(patient);
+        this.form.patchValue({
+          patientId: patient.id,
+        });
+      });
+    });
+    this.doctorService.getAll()
+    .subscribe(doctors => {
+      this.doctors = doctors;
     });
   }
 
@@ -54,9 +70,10 @@ export class PatientAddRecordComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      // hospitalId: ['', [Validators.required]],
+      patientId: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      dateRecord: ['', [Validators.required]],
+      recordDate: ['', [Validators.required]],
+      doctorId: ['', [Validators.required]],
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Params } from '@angular/router';
 import { RecordService } from './../../../core/services/record/record.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { RecordService } from './../../../core/services/record/record.service';
 export class PatientViewRecordComponent implements OnInit {
 
   records = [];
+  id: string;
   displayedColumns: string[] = [
     'id',
     'description',
@@ -17,16 +18,22 @@ export class PatientViewRecordComponent implements OnInit {
   ];
 
   constructor(
-    private recordService: RecordService
+    private recordService: RecordService,
+    private activeRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.fetch();
+    this.activeRoute.params.subscribe((params: Params) => {
+      console.log(params);
+      this.id = params.id;
+      this.fetch(this.id);
+    });
   }
 
-  fetch() {
-    this.recordService.getAll()
+  fetch(id: string) {
+    this.recordService.getByPatient(id)
     .subscribe(records => {
+      console.log(records);
       this.records = records;
     });
   }

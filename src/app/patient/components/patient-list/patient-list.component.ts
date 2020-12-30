@@ -36,7 +36,7 @@ export class PatientListComponent implements OnInit {
     });
   }
 
-  delete(id: string) {
+  delete(id: number) {
     this.patientService.delete(id)
     .subscribe(rta => {
       console.log('Patient deleted rta::::', rta);

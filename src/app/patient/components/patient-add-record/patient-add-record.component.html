@@ -3,7 +3,27 @@
         <mat-card-header>
             <mat-card-title>Add Record Patient</mat-card-title>
         </mat-card-header>
-        <mat-card-content>  
+        <mat-card-content>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input placeholder="Patient Id" formControlName="patientId" matInput type="text" [readonly]="true">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                     <mat-form-field *ngIf = "doctors">
+                        <mat-select formControlName="doctorId"  
+                            placeholder="Select Doctor" 
+                            [(value)]="selectedDoctor">
+                            <mat-option *ngFor="let item of doctors" [value]="item.id">
+                                {{item.name + ' ' + item.lastName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
@@ -13,11 +33,13 @@
             </div>
             <div class="row">
                 <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Record Date" formControlName="recordDate" matInput type="text">
+                    <mat-form-field>                        
+                        <input formControlName="recordDate" matInput [matDatepicker]="myPicker"  placeholder="date">
+                        <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myPicker></mat-datepicker>
                     </mat-form-field>
                 </div>
-            </div>                     
+            </div>                              
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Save</button>

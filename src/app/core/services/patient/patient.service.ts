@@ -18,7 +18,7 @@ export class PatientService {
     return this.http.get<Patient[]>(`${environment.url_api}/patients/`);
   }
 
-  get(id: string) {
+  get(id: number) {
     return this.http.get<Patient>(`${environment.url_api}/patients/${id}`);
   }
 
@@ -26,11 +26,11 @@ export class PatientService {
     return this.http.post(`${environment.url_api}/patients`, patient);
   }
 
-  update(id: string, changes: Partial<Patient>) {
+  update(id: number, changes: Partial<Patient>) {
     return this.http.put(`${environment.url_api}/patients/${id}`, changes);
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.http.delete(`${environment.url_api}/patients/${id}`);
   }
 }

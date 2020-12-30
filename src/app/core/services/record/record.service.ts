@@ -22,6 +22,10 @@ export class RecordService {
     return this.http.get<Record>(`${environment.url_api}/records/${id}`);
   }
 
+  getByPatient(id: string) {
+    return this.http.get<Record[]>(`${environment.url_api}/records/patient/${id}`);
+  }
+
   create(record: Record) {
     return this.http.post(`${environment.url_api}/records`, record);
   }
