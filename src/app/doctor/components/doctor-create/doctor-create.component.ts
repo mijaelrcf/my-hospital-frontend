@@ -85,4 +85,11 @@ export class DoctorCreateComponent implements OnInit {
       profilePicture: [''],
     });
   }
+
+  get hospital() { return this.form.get('hospitalId'); }
+  get specialty() { return this.form.get('specialtyId'); }
+  get name() { return this.form.get('name'); }
+  get lastName() { return this.form.get('lastName'); }
+  get birthdate() { return this.form.get('birthdate'); }
+  get address() { return this.form.get('address'); }
 }

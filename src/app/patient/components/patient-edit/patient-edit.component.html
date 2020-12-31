@@ -16,7 +16,7 @@
                      <mat-form-field *ngIf = "hospitals">
                         <mat-select formControlName="hospitalId"  
                             placeholder="Select Hospital" 
-                            [(value)]="selectedHospital">
+                            [(value)]="selectedHospital" required>
                             <mat-option *ngFor="let item of hospitals" [value]="item.id">
                                 {{item.name}}
                             </mat-option>
@@ -24,34 +24,59 @@
                     </mat-form-field>
                 </div>
             </div>
+            <div *ngIf="hospital.invalid && (hospital.dirty || hospital.touched)" class="alert alert-danger">
+                <div *ngIf="hospital.errors.required">
+                    Hospital is required.
+                </div>
+            </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Name" formControlName="name" matInput type="text">
+                        <input placeholder="Name" formControlName="name" matInput type="text" required>
                     </mat-form-field>
                 </div>
             </div>
-             <div class="row">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                    Name patient is required.
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Last Name" formControlName="lastName" matInput type="text">
+                        <input placeholder="Last Name" formControlName="lastName" matInput type="text" required>
                     </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                <div *ngIf="lastName.errors.required">
+                    Lastname patient is required.
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>                        
-                        <input formControlName="birthdate" matInput [matDatepicker]="myPicker"  placeholder="date">
+                        <input formControlName="birthdate" matInput [matDatepicker]="myPicker" placeholder="Birthdate" required>
                         <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
                         <mat-datepicker #myPicker></mat-datepicker>
                     </mat-form-field>
                 </div>
             </div>
+            <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="alert alert-danger">
+                <div *ngIf="birthdate.errors.required">
+                    Birthdate patient is required.
+                </div>
+            </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Address" formControlName="address" matInput type="text">
+                        <input placeholder="Address" formControlName="address" matInput type="text" required>
                     </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                <div *ngIf="address.errors.required">
+                    Address patient is required.
                 </div>
             </div>
             <div class="row">

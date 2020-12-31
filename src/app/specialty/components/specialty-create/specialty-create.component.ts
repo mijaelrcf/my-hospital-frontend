@@ -61,9 +61,10 @@ export class SpecialtyCreateComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      avatar: ['', [Validators.required]],
-      // image: [''],
+      description: [''],
+      avatar: ['']
     });
   }
+
+  get name() { return this.form.get('name'); }
 }

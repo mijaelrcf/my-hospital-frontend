@@ -55,4 +55,6 @@ export class HospitalEditComponent implements OnInit {
       name: ['', [Validators.required]],
     });
   }
+
+  get name() { return this.form.get('name'); }
 }

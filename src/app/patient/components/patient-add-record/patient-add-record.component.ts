@@ -77,4 +77,7 @@ export class PatientAddRecordComponent implements OnInit {
     });
   }
 
+  get description() { return this.form.get('description'); }
+  get recordDate() { return this.form.get('recordDate'); }
+  get doctorId() { return this.form.get('doctorId'); }
 }

@@ -69,4 +69,10 @@ export class PatientEditComponent implements OnInit {
     });
   }
 
+  get hospital() { return this.form.get('hospitalId'); }
+  get name() { return this.form.get('name'); }
+  get lastName() { return this.form.get('lastName'); }
+  get birthdate() { return this.form.get('birthdate'); }
+  get address() { return this.form.get('address'); }
+
 }

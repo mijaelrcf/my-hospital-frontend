@@ -54,9 +54,11 @@ export class SpecialtyEditComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      avatar: ['', [Validators.required]],
+      description: [''],
+      avatar: [''],
       // image: [''],
     });
   }
+
+  get name() { return this.form.get('name'); }
 }

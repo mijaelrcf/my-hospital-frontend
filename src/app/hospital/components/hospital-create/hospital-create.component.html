@@ -7,9 +7,14 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Name" formControlName="name" matInput type="text">
+                        <input placeholder="Name" formControlName="name" matInput type="text" required>
                     </mat-form-field>
                 </div>
+            </div>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                    Name hospital is required.
+                </div>                             
             </div>            
         </mat-card-content>
         <mat-card-actions>

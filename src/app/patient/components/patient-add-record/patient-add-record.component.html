@@ -16,7 +16,7 @@
                      <mat-form-field *ngIf = "doctors">
                         <mat-select formControlName="doctorId"  
                             placeholder="Select Doctor" 
-                            [(value)]="selectedDoctor">
+                            [(value)]="selectedDoctor" required>
                             <mat-option *ngFor="let item of doctors" [value]="item.id">
                                 {{item.name + ' ' + item.lastName}}
                             </mat-option>
@@ -24,22 +24,37 @@
                     </mat-form-field>
                 </div>
             </div>
+            <div *ngIf="doctorId.invalid && (doctorId.dirty || doctorId.touched)" class="alert alert-danger">
+                <div *ngIf="doctorId.errors.required">
+                    doctor is required.
+                </div>                             
+            </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Description" formControlName="description" matInput type="text">
+                        <input placeholder="Description" formControlName="description" matInput type="text" required>
                     </mat-form-field>
                 </div>
+            </div>
+            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                <div *ngIf="description.errors.required">
+                    Description is required.
+                </div>                             
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>                        
-                        <input formControlName="recordDate" matInput [matDatepicker]="myPicker"  placeholder="date">
+                        <input formControlName="recordDate" matInput [matDatepicker]="myPicker"  placeholder="date" required>
                         <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
                         <mat-datepicker #myPicker></mat-datepicker>
                     </mat-form-field>
                 </div>
-            </div>                              
+            </div>
+            <div *ngIf="recordDate.invalid && (recordDate.dirty || recordDate.touched)" class="alert alert-danger">
+                <div *ngIf="recordDate.errors.required">
+                    Record date is required.
+                </div>                             
+            </div>
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Save</button>
