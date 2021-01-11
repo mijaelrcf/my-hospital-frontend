@@ -31,7 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Se debe descargar el codigo fuente desarrollado con ANGULAR
 
-Se debe obtener/actualizar las dependencias del proyecto.  (npm update)
+Se debe obtener/instalar las dependencias del proyecto.  (npm install)
 
 En el archivo environments/environment.ts
 Se debe apuntar en el key "url_api" al sitio backend realizado JAVA Spring 
